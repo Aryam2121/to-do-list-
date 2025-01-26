@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To DO List | untoldcoding</title>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="style.css" />
-   
   </head>
   <body>
     <main>
       <div class="container">
         <div class="todo">
           <h1 class="title">
-            To-Do list
+            To-Do List
             <img
               src="https://cdn3d.iconscout.com/3d/premium/thumb/task-list-6378425-5283774.png"
+              alt="Task List Icon"
             />
           </h1>
           <div class="block">
@@ -31,7 +31,50 @@
         </div>
       </div>
     </main>
-    <script src="script.js"></script>
-   
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const addButton = document.querySelector(".add");
+        const inputField = document.querySelector(".input");
+        const taskList = document.querySelector(".list");
+
+        addButton.addEventListener("click", () => {
+          const task = inputField.value.trim();
+          if (task) {
+            const listItem = document.createElement("li");
+            listItem.classList.add("item");
+
+            const checkButton = document.createElement("div");
+            checkButton.classList.add("check");
+            checkButton.addEventListener("click", () => {
+              listItem.classList.toggle("checked");
+              checkButton.classList.toggle("checked");
+            });
+
+            const taskText = document.createElement("span");
+            taskText.textContent = task;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("done");
+            deleteButton.innerHTML = "&times;";
+            deleteButton.addEventListener("click", () => {
+              taskList.removeChild(listItem);
+            });
+
+            listItem.appendChild(checkButton);
+            listItem.appendChild(taskText);
+            listItem.appendChild(deleteButton);
+
+            taskList.appendChild(listItem);
+            inputField.value = "";
+          }
+        });
+
+        inputField.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            addButton.click();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
