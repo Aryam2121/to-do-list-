@@ -3,23 +3,29 @@ body {
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
-    background: black;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
-  
+
   .container {
     margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1630px;
-    min-width: 320px;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
-  
+
   .list-reset {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  
+
   .input-reset {
     -webkit-appearance: none;
     appearance: none;
@@ -27,115 +33,113 @@ body {
     border-radius: 0;
     background-color: #fff;
   }
+
   .input-reset::-webkit-search-decoration,
   .input-reset::-webkit-search-cancel-button,
   .input-reset::-webkit-search-results-button,
   .input-reset::-webkit-search-results-decoration {
     display: none;
   }
-  
+
   .todo {
-    margin: 10vh auto;
-    padding: 20px;
     width: 100%;
-    max-width: 500px;
-    background-color: #fff;
-    border-radius: 10px;
   }
+
   .title {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
-    color: #104ca1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
   }
+
   .title img {
-    margin-left: 15px;
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
   }
+
   .row {
     display: flex;
     margin-bottom: 20px;
   }
+
   .input {
     flex: 1;
-    padding: 10px 15px;
-    height: 40px;
-    border: 1px solid grey;
-    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
   }
+
   .input:focus {
     outline: none;
+    border-color: #74ebd5;
   }
+
   .add {
-    width: 25%;
-    color: #fff;
-    background-color: #22b3e4;
-    border: 1px solid transparent;
-    border-radius: 0 10px 10px 0;
-    transition: all 0.3s ease;
+    background-color: #74ebd5;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
   }
+
   .add:hover {
-    background-color: rgba(6, 31, 143, 0.8);
+    background-color: #5cc0b8;
   }
+
   .item {
     display: flex;
     align-items: center;
-    cursor: pointer;
-  }
-  .item:not(:last-child) {
+    justify-content: space-between;
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, transform 0.2s;
   }
+
+  .item:hover {
+    background-color: #eafafa;
+    transform: scale(1.02);
+  }
+
   .item.checked {
     text-decoration: line-through;
-    color: #cecece;
+    color: #888;
   }
-  .item.checked .check {
-    background-color: #fff;
-    border: 2px solid rgba(65, 81, 103, 0.4);
-  }
-  .item.checked .check::after {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: 8px;
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-image: url("https://svgsilh.com/svg/146095.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: rotate(5deg);
-  }
-  .check {
-    position: relative;
-    display: inline-block;
-    order: -1;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    background-color: #cecece;
-    border-radius: 50%;
-    border: 2px solid #415167;
-    transition: all 0.3s ease;
-  }
+
   .done {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-    background: url("https://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png")
-      no-repeat;
-    background-size: 80%;
-    background-position: top 3px left 3px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
   }
+
   .done:hover {
-    background-color: #cecece;
-    border: 1px solid transparent;
-    border-radius: 50%;
+    transform: scale(1.3);
   }
-  
+
+  .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #74ebd5;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .check.checked {
+    background-color: #74ebd5;
+  }
